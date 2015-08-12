@@ -1,0 +1,91 @@
+A string is basically a sequence of characters. Each character is a Unicode character in the range U+0000 to U+FFFF.The string type
+has the following characteristics:it is a reference type, it's immutable, it can contain nulls, it overloads the == operator.There are two
+types of string literals in C# - regular string literals and verbatim string literals. Regular string literals are similar to those in many other 
+languages such as Java and C - they start and end with ", and various characters (in particular, " itself, \, and carriage return (CR) and 
+line feed (LF)) need to be "escaped" to be represented in the string. Verbatim string literals allow pretty much anything within them, and
+end at the first " which isn't doubled. Even carriage returns and line feeds can appear in the literal! To obtain a " within the string itself,
+you need to write "". Verbatim string literals are distinguished by having an @ before the opening quote. 
+The complete set of escape sequences is as follows:
+
+\' - single quote, needed for character literals
+\" - double quote, needed for string literals
+\\ - backslash
+\0 - Unicode character 0
+\a - Alert (character 7)
+\b - Backspace (character 8)
+\f - Form feed (character 12)
+\n - New line (character 10)
+\r - Carriage return (character 13)
+\t - Horizontal tab (character 9)
+\v - Vertical quote (character 11)
+\uxxxx - Unicode escape sequence for character with hex value xxxx
+\xn[n][n][n] - Unicode escape sequence for character with hex value nnnn (variable length version of \uxxxx)
+\Uxxxxxxxx - Unicode escape sequence for character with hex value xxxxxxxx (for generating surrogates)
+
+Most important methods for strings:
+
+Compare- determines the sort order of strings. It checks if one string is ordered before another when in alphabetical order, whether
+it is ordered after, or is equivalent. Compare, CompareOrdinal and CompareTo provide this functionality.
+
+With Concat two or more strings become one. It is possible to concatenate two or more strings with several syntax forms. We use the 
+plus operator and the string.Concat method. The plus compiles into string.Concat.
+
+Like IndexOf, Contains searches strings. It checks if one substring is contained in another. It also provides a case-sensitive ordinal 
+method for checking string contents.Contains returns true or false, not an index.
+
+Strings rarely need copying. But there are some cases where they do. The language provides the string.Copy method. This method is 
+not useful often. It rarely has a place when using string interning.
+
+CopyTo takes string characters and puts them into an array. It copies a group of characters from one source string into a character 
+array of a certain size. This .NET Framework method provides optimized low-level code.
+
+EndsWith tests the last parts of strings. It finds strings in your program that have a certain ending sequence of characters. The .NET 
+Framework provides this method on the string type. It is a simple way to test for ending substrings.
+
+String.Equals compares strings. It is not the same as the Compare and CompareTo methods. Equals tests strings for equality. It is 
+invoked with the method name Equals or with the equality operator.
+
+IndexOf. A string contains many characters. These characters may be searched and tested. We simplify these operations with 
+IndexOf.
+
+Insert places one string into another. This forms a new string in your C# program. We use the string Insert method to place one 
+string in the middle of another one—or at any other position.
+
+The string.Join method combines many strings into one. It receives two arguments: an array or IEnumerable and a separator 
+string. It places the separator between every element of the collection in the returned string.
+
+LastIndexOf searches strings from the right. It finds the location of the last occurrence of a letter or substring. It requires no 
+explicit for-loop. LastIndexOfAny searches for an array of strings.
+
+Every string object has a length. Every character—no matter what it is—is counted in the Length property. Length is cached 
+on the string type. It is possible to avoid exceptions while accessing Length.
+
+PadRight adds spaces to the right of strings. PadLeft meanwhile adds to the left. These methods make text easier to read. 
+Padding a string adds whitespace or other characters to the beginning or end. Any character can be used for padding.
+
+Remove eliminates a range of characters. The Remove method on the string class is useful for shortening strings. We 
+look at some examples of using Remove. And then we benchmark how it performs versus alternative methods.
+
+Replace. A string contains incorrect chars. It has XYZ but we want ABC. Replace helps with this puzzle. It swaps those substrings.
+
+Split. Often strings have delimiter characters in their data. Delimiters include "\r\n" newline sequences and the comma and tab 
+characters.
+
+ToUpper uppercases all letters in a string. It is useful for processing text input or for when you need to check the string against 
+an already uppercase string. It has no effect on non-lowercase characters.
+
+ToLower changes strings to be all lowercase. It converts an entire string—without changing letters that are already lowercased 
+or digits. It copies a string and returns a reference to the new string. The original string is unchanged.
+
+Trim eliminates leading and trailing whitespace. We need to remove whitespace from the beginning or ending of a string. We use 
+the .NET Framework's Trim method to do this efficiently. This method removes any characters specified.
+
+TrimEnd removes ending characters from a string. Suppose we have a string with trailing punctuation. We can use TrimEnd to 
+remove these characters. TrimStart meanwhile removes from the start of a string.
+
+
+
+
+
+
+
